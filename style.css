@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/css.gg/icons/all.css");
+
 :root {
   --main-bg-color: #fff;
   --second-bg-color: #f2f0ff;
@@ -53,6 +55,7 @@ img {
 .bg-second {
   background-color: var(--purple);
   color: var(--main-bg-color);
+  display: none;
 }
 
 .top-header {
@@ -154,15 +157,10 @@ img {
   color: var(--pink);
 }
 
-.user-menu {
+.nav-links {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 9rem;
-}
-
-.user-menu > li {
-  margin-left: 20px;
 }
 
 .search {
@@ -172,6 +170,7 @@ img {
   position: relative;
   width: 260px;
   height: 40px;
+  margin-left: 100px;
 }
 
 .search input {
@@ -283,8 +282,10 @@ img {
   width: 9px;
 }
 
-@media (max-width: 480px) {
-
+@media (min-width: 480px) {
+  .bg-second {
+    display: block;
+  }
   .hero {
     padding: 3.5rem 0;
   }
@@ -305,8 +306,88 @@ img {
     width: 100%;
   }
 }
+@media (max-width: 575.98px) {
+  .navbar .menu-toggle {
+    display: none;
+  }
+  .hide-toggle {
+    display: none;
+  }
+  .navbar {
+    position: relative;
+  }
+  .navbar .menu-toggle {
+    display: block;
+    cursor: pointer;
+    padding: 1rem;
+  }
+  .nav-links {
+    position: absolute;
+    top: 0px;
+    left: 40%;
+    right: 0;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: -35px 0px 20px -25px rgba(0, 0, 0, 0.548);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: space-between;
+    padding: 0rem;
+    z-index: 999;
+    transition: all 200ms ease;
+  }
+  .nav-links.show {
+    transform: translateX(0%);
+    visibility: visible;
+    opacity: 1;
+  }
+  .nav-links.hide {
+    transform: translateX(100%);
+    visibility: hidden;
+    opacity: 0;
+  }
+  .nav-links .hide-toggle {
+    --ggs: 1.5;
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 50px;
+  }
+  .nav-links .nav-link {
+    width: 100%;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    margin-left: 15px;
+    margin-bottom: 20px;
+  }
+  .nav-links li:hover {
+    color: var(--pink);
+  }
+  .search {
+    display: none;
+  }
+}
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+  .navbar .menu-toggle {
+    display: none;
+  }
+  .hide-toggle {
+    display: none;
+  }
+  .nav-link {
+    font-weight: 600;
+    margin: 0 1rem;
+  }
+  .nav-link:hover {
+    color: var(--pink);
+  }
   .info {
     width: 57%;
   }
@@ -315,6 +396,7 @@ img {
     line-height: 3rem;
   }
   .top-img {
+    display: block;
     z-index: 1;
     width: 43%;
   }
@@ -329,7 +411,7 @@ img {
   }
 }
 
-@media (max-width: 992px) {
+@media (min-width: 992px) {
 }
 /* end hero section */
 

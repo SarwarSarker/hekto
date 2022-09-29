@@ -29,20 +29,18 @@ function resetActiveBtn() {
   });
 }
 
+//nav
 
-// slider
+const hideToggle = document.querySelector(".hide-toggle");
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
 
-const slidesContainer = document.getElementById("slides-container");
-const slide = document.querySelector(".slide");
-const prevButton = document.querySelector("slide-prev");
-const nextButton = document.querySelector("slide-next");
- 
-nextButton.addEventListener("click", () => {
-  const slideWidth = slide.clientWidth;
-  slidesContainer.scrollLeft += slideWidth;
+hideToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("hide");
 });
- 
-prevButton.addEventListener("click", () => {
-  const slideWidth = slide.clientWidth;
-  slidesContainer.scrollLeft -= slideWidth;
+menuToggle.addEventListener("click", () => {
+  if (navLinks.classList.contains("hide")) {
+    navLinks.classList.remove("hide");
+    navLinks.classList.toggle("show");
+  }
 });
